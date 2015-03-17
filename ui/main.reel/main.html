@@ -13,6 +13,34 @@
                 "element": {"#": "main"}
             }
         },
+        "rep": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "items"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@owner.subs"}
+            }
+        },
+        "item": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "item"}
+            },
+            "bindings": {
+                "value": {"<-": "@rep.objectAtCurrentIteration.data.display_name"}
+            }
+        },
+        "currentsub": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "currentsub"}
+            },
+            "bindings": {
+                "value": {"<-": "@rep.selection.0.data.display_name ?? 'Please Select a Sub'"}
+            }
+        },
         "stories": {
             "prototype": "montage/ui/repetition.reel",
             "properties": {
