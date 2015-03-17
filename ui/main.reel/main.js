@@ -17,6 +17,8 @@ exports.Main = Component.specialize(/** @lends Main# */ {
     
     templateDidLoad: {
         value: function() {
+            this.addPathChangeListener("templateObjects.rep.selection.0.data", this, "handleSelection");
+            
             var script = document.createElement("script");
             script.src = "http://www.reddit.com/reddits.json?jsonp=subfn";
 
