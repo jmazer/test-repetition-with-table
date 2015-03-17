@@ -13,10 +13,41 @@
                 "element": {"#": "main"}
             }
         },
-        "repetition": {
+        "stories": {
             "prototype": "montage/ui/repetition.reel",
             "properties": {
-                "element": {"#": "repetition"}
+                "element": { "#": "stories" }
+            },
+            "bindings": {
+                "content": { "<-": "@owner.stories" }
+            }
+        },
+        "title": {
+            "prototype": "matte/ui/anchor.reel",
+            "properties": {
+                "element": { "#": "title" }
+            },
+            "bindings": {
+                "textContent": { "<-": "@stories.objectAtCurrentIteration.data.title" },
+                "href": { "<-": "@stories.objectAtCurrentIteration.data.url" }
+            }
+        },
+        "author": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "author" }
+            },
+            "bindings": {
+                "value": { "<-": "@stories.objectAtCurrentIteration.data.author" }
+            }
+        },
+        "score": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "score" }
+            },
+            "bindings": {
+                "value": { "<-": "@stories.objectAtCurrentIteration.data.score" }
             }
         }
     }
