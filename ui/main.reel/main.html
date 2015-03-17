@@ -13,33 +13,6 @@
                 "element": {"#": "main"}
             }
         },
-        "author": {
-            "prototype": "digit/ui/text.reel",
-            "properties": {
-                "element": {"#": "author"}
-            },
-            "bindings": {
-                "value": {"<-": "@stories:iteration.data.author"}
-            }
-        },
-        "currentsub": {
-            "prototype": "digit/ui/text.reel",
-            "properties": {
-                "element": {"#": "currentsub"}
-            },
-            "bindings": {
-                "value": {"<-": "@rep.selection.0.data.display_name ?? 'Please Select a Sub'"}
-            }
-        },
-        "item": {
-            "prototype": "digit/ui/text.reel",
-            "properties": {
-                "element": {"#": "item"}
-            },
-            "bindings": {
-                "value": {"<-": "@rep:iteration.data.display_name"}
-            }
-        },
         "rep": {
             "prototype": "montage/ui/repetition.reel",
             "properties": {
@@ -50,31 +23,59 @@
                 "content": {"<-": "@owner.subs"}
             }
         },
-        "score": {
-            "prototype": "digit/ui/text.reel",
+        "item": {
+            "prototype": "montage/ui/text.reel",
             "properties": {
-                "element": {"#": "score"}
+                "element": {"#": "item"}
             },
             "bindings": {
-                "value": {"<-": "@stories:iteration.data.score"}
+                "value": {"<-": "@rep.objectAtCurrentIteration.data.display_name"}
+            }
+        },
+        "currentsub": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "currentsub"}
+            },
+            "bindings": {
+                "value": {"<-": "@rep.selection.0.data.display_name ?? 'Please Select a Sub'"}
             }
         },
         "stories": {
             "prototype": "montage/ui/repetition.reel",
             "properties": {
-                "element": {"#": "stories"}
+                "element": { "#": "stories" }
             },
             "bindings": {
-                "content": {"<-": "@owner.stories"}
+                "content": { "<-": "@owner.stories" }
             }
         },
         "title": {
-            "prototype": "digit/ui/text.reel",
+            "prototype": "matte/ui/anchor.reel",
             "properties": {
-                "element": {"#": "title"}
+                "element": { "#": "title" }
             },
             "bindings": {
-                "value": {"<-": "@stories::iteration.data.title"}
+                "textContent": { "<-": "@stories.objectAtCurrentIteration.data.title" },
+                "href": { "<-": "@stories.objectAtCurrentIteration.data.url" }
+            }
+        },
+        "author": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "author" }
+            },
+            "bindings": {
+                "value": { "<-": "@stories.objectAtCurrentIteration.data.author" }
+            }
+        },
+        "score": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "score" }
+            },
+            "bindings": {
+                "value": { "<-": "@stories.objectAtCurrentIteration.data.score" }
             }
         }
     }
